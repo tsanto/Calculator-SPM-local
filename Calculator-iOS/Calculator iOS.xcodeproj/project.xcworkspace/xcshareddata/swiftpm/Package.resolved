@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Calculator",
+        "repositoryURL": "https://github.com/tsanto/Calculator-SPM.git",
+        "state": {
+          "branch": "master",
+          "revision": "02b984de060768c983fe0ac6be4f8f3c1ded789f",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
