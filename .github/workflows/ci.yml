@@ -1,0 +1,28 @@
+name: Test and Deploy
+on:
+  pull_request:
+    branches:
+      - develop        
+jobs:
+  test:
+    name: Test
+    runs-on: macOS-latest
+    steps:
+        - name: Checkout repository
+          uses: actions/checkout@v1
+        - name: Force xcode 11
+          run: sudo xcode-select -switch /Applications/Xcode_11.1.app
+        - name: Testing Swift package
+          run: |
+            cd Calculato-package; swift test --parallel
+        - name: Testing iOS app
+          run: |
+            xcodebuild clean test -workspace Calculator.xcworkspace -scheme 'Calculator iOS' -destination 'platform=iOS Simulator,name=iPhone 11'
+  deploy:
+      name: Deploy
+      if: github.event.pull_request.merged
+      runs-on: macOS-latest
+      needs: [test]
+      steps:
+        - name: Deploy
+          run: |
