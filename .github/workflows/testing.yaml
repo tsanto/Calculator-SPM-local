@@ -15,12 +15,7 @@ jobs:
      
       - name: chmod 
         run: chmod u+x ./.github/scripts/*
-      #     # chmod u+x ./.github/scripts/test_swift_package.sh
-      #     # chmod u+x ./.github/scripts/test_app.sh
-
-      # - run: git update-index --chmod=+x ./.github/scripts/test_swift_package.sh
-      # - run: git update-index --chmod=+x ./.github/scripts/test_app.sh
-     
+        
       - name: Testing Swift package
         run: exec ./.github/scripts/test_swift_package.sh
       - name: Testing iOS app
