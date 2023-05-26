@@ -15,8 +15,10 @@ jobs:
      
       - name: chmod 
         run: |
-          git update-index --chmod=+x ./.github/scripts/*
-
+          chmod u+x ./.github/scripts/*
+          chmod u+x ./.github/scripts/test_swift_package.sh
+          chmod u+x ./.github/scripts/est_app.sh
+          
       - run: git update-index --chmod=+x ./.github/scripts/test_swift_package.sh
       - run: git update-index --chmod=+x ./.github/scripts/test_app.sh
      
