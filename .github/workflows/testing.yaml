@@ -12,7 +12,9 @@ jobs:
         uses: actions/checkout@v1
       - name: Force XCode 14.2
         run: sudo xcode-select -switch /Applications/Xcode_14.2.app
+      - run: git update-index --chmod=+x ./.github/scripts/test_swift_package.sh
+      - run: git update-index --chmod=+x ./.github/scripts/test_app.sh
       - name: Testing Swift package
-        run: exec sudo ./.github/scripts/test_swift_package.sh
+        run: exec ./.github/scripts/test_swift_package.sh
       - name: Testing iOS app
         run: exec ./.github/scripts/test_app.sh
