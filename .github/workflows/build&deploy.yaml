@@ -30,7 +30,7 @@ jobs:
       
       - name: Setup provisioning profile
         env:
-          IOS_KEYS: Welcome123# 
+          IOS_KEYS: Welcomefb
           # ${{ secrets.IOS_KEYS }}
         run: ./.github/secrets/decrypt_secrets.sh
      
