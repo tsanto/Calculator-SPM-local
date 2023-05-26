@@ -4,5 +4,5 @@ set -eo pipefail
 
 xcodebuild -workspace Calculator.xcworkspace \
             -scheme Calculator\ iOS \
-            -destination platform=iOS\ Simulator,OS=13.3,name=iPhone\ 11 \
+            -destination platform=iOS\ Simulator,OS=16.1,name=iPhone\ 14 \
             clean test | xcpretty
