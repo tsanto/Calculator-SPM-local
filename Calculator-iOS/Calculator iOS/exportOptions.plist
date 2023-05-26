@@ -10,8 +10,8 @@
 	<true/>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>com.tiagosanto.calculatorIOS</key>
-		<string>match AppStore com.tiagosanto.calculatorIOS</string>
+		<key>com.calculator.fb</key>
+		<string>calculatormpp</string>
 	</dict>
 </dict>
 </plist>
