@@ -45,12 +45,29 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Gakko IOS IPA
-          path: "*.ipa"
+          path: "output.ipa"
 
-      # - name: "Upload app to TestFlight"
-      #   uses: apple-actions/upload-testflight-build@v1
+      - name: "Upload app to TestFlight"
+        uses: apple-actions/upload-testflight-build@v1
+        with:
+          app-path: "output.ipa"
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+
+
+      # - name: Upload app to TestFlight
+      #   # You may pin to the exact commit or the version.
+      #   # uses: Apple-Actions/upload-testflight-build@54dc215b4cd5529730db39f11c84efdb71414e07
+      #   uses: Apple-Actions/upload-testflight-build@v1
       #   with:
-      #     app-path: "output.ipa"
-      #     issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-      #     api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
-      #     api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+      #     # The path to the app (ipa etc)
+      #     app-path: 
+      #     # The type of app to upload (osx | ios | appletvos)
+      #     app-type: # default is ios
+      #     # The AppStoreConnect API Key Issuer Identifier
+      #     issuer-id: 
+      #     # The Key ID for AppStore Connect API
+      #     api-key-id: 
+      #     # The PKCS8 format Private Key for AppStore Connect API
+      #     api-private-key: 
