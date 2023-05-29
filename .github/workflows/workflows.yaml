@@ -9,16 +9,16 @@ jobs:
   ios-build:
     name: IOS Build
     runs-on: macos-latest
-    defaults:
-      run:
-        working-directory: ios
+    # defaults:
+    #   run:
+    #     working-directory: ios
 
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
-      # - name: Force XCode 14.2
-      #   run: sudo xcode-select -switch /Applications/Xcode_14.2.app
+      - name: Force XCode 14.2
+        run: sudo xcode-select -switch /Applications/Xcode_14.2.app
 
       - name: chmod 
         run: |
