@@ -48,7 +48,7 @@ jobs:
           path: "/Users/runner/work/Calculator-SPM-local/Calculator-SPM-local/*"
       
       - name: copy past info file
-        run: mv ./Calculator-iOS/Calculator iOS/Info.plist ./output.app.dSYM/Calculator iOS.app.dSYM/Contents/
+        run: mv ./Calculator-iOS/Calculator iOS/Info.plist ./output.app.dSYM/Calculator\ iOS.app.dSYM/Contents/
 
       - name: "Upload app to TestFlight"
         uses: apple-actions/upload-testflight-build@v1
