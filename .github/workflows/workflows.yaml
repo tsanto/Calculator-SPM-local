@@ -1,0 +1,54 @@
+name: IOS Build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  ios-build:
+    name: IOS Build
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: ios
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Force XCode 14.2
+        run: sudo xcode-select -switch /Applications/Xcode_14.2.app
+
+      - name: chmod 
+        run: |
+          chmod u+x ./.github/scripts/*
+          chmod u+x ./.github/secrets/decrypt_secrets.sh
+
+      - name: Install Pods
+        run: gem install cocoapods
+
+      - name: Build IOS App
+        uses: yukiarrr/ios-build-action@v1.4.0
+        with:
+          project-path: Calculator-iOS/Calculator iOS.xcodeproj
+          p12-base64: ${{ secrets.IOS_P12_BASE64 }}
+          mobileprovision-base64: ${{ secrets.IOS_MOBILE_PROVISION_BASE64 }}
+          code-signing-identity: "iPhone Distribution"
+          team-id: ${{ secrets.IOS_TEAM_ID }}
+          certificate-password: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
+          workspace-path: Calculator.xcworkspace
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Gakko IOS IPA
+          path: "*.ipa"
+
+      # - name: "Upload app to TestFlight"
+      #   uses: apple-actions/upload-testflight-build@v1
+      #   with:
+      #     app-path: "output.ipa"
+      #     issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+      #     api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+      #     api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
