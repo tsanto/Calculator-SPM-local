@@ -37,6 +37,7 @@ jobs:
           code-signing-identity: "iPhone Distribution"
           team-id: ${{ secrets.IOS_TEAM_ID }}
           certificate-password: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
+          scheme: Calculator iOS
           workspace-path: Calculator.xcworkspace
 
       - name: Upload Artifact
