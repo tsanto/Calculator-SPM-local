@@ -47,8 +47,8 @@ jobs:
           name: Ipa dir
           path: "/Users/runner/work/Calculator-SPM-local/Calculator-SPM-local/*"
       
-      - name: copy past info file
-        run: ls -la && mv ./Calculator-iOS/Calculator iOS/Info.plist ./output.app.dSYM/Calculator\ iOS.app.dSYM/Contents/
+      # - name: copy past info file
+      #   run: ls -la && mv ./Calculator-iOS/Calculator iOS/Info.plist ./output.app.dSYM/Calculator\ iOS.app.dSYM/Contents/
 
       - name: "Upload app to TestFlight"
         uses: apple-actions/upload-testflight-build@v1
